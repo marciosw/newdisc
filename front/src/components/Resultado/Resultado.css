@@ -1,0 +1,151 @@
+.detalhes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:10px;
+    color:#fff
+}
+
+.detalhes h2{
+    color: #fff;
+}
+
+.dadosUser {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 80px;
+    width: 100dvw;
+}
+
+.usuario, .graphic {
+    min-width: 300px;
+}
+.graphic img{
+    width: 300px;
+}
+
+.table-container {
+  margin-top: 30px;
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1250px;
+  color: black;
+}
+
+.disc-table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Remove bordas verticais e mantém só horizontais */
+.disc-table th,
+.disc-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: none;
+  border-right: none;
+  font-size: 16px;
+}
+
+.disc-table th:last-child,
+.disc-table td:last-child {
+  border-right: none;
+}
+
+.disc-table th:first-child,
+.disc-table td:first-child {
+  border-left: none;
+}
+
+.disc-table th {
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.disc-table td {
+  background-color: #fff;
+}
+
+/* Remove a linha abaixo do último item */
+.disc-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .disc-table th,
+  .disc-table td {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
+
+.text-container {
+  margin-top: 30px;
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  max-width: 1250px;
+  width: 100%;
+  padding: 30px;
+}
+
+.paragraph {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.disc-label {
+  font-weight: bold;
+  font-size: 22px;
+  color: #333;
+  margin-right: 15px;
+  flex-shrink: 0;
+  width: 25px;
+  text-align: center;
+  border-right: 2px solid #dcdcdc;
+  padding-right: 10px;
+}
+
+.paragraph p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .text-container {
+    padding: 20px;
+  }
+
+  .disc-label {
+    font-size: 18px;
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 8px;
+  }
+
+  .paragraph {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .paragraph p {
+    font-size: 15px;
+  }
+}
