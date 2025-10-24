@@ -1,7 +1,8 @@
 import React from "react";
 import "./Resultado.css";
 import Header from "../Header";
-import imagemGrafico from "../../images/analytics.jpg"
+import DynamicChart from "../ChartJS/DynamicChart";
+import Footer from "../Footer/Footer";
 
 const Resultado = () => {
   return (
@@ -16,7 +17,7 @@ const Resultado = () => {
             <p>Talentos: Programar as coisas</p>
           </div>
           <div className="graphic">
-            <img src={imagemGrafico}></img>
+            <DynamicChart />
           </div>
         </div>
         <div class="table-container">
@@ -40,37 +41,66 @@ const Resultado = () => {
           </table>
         </div>
         <div class="text-container">
-    <div class="paragraph">
-      <div class="disc-label">D</div>
-      <p>
-       	Quis non sit dui duis class rutrum convallis augue urna ultrices, aenean cubilia quam nam auctor netus tempor metus luctus, dolor sit tristique donec id dui proin leo quisque. vivamus enim mattis aliquet libero eros massa in cubilia maecenas venenatis, ipsum tempus ultricies class praesent suscipit porttitor magna libero, quis erat accumsan in scelerisque tellus erat cras velit. class leo vestibulum aenean ipsum libero pretium, ultricies ac habitasse conubia maecenas 
-      </p>
-    </div>
+          <div class="paragraph">
+            <div class="disc-label">D</div>
+            <p>
+              Quis non sit dui duis class rutrum convallis augue urna ultrices,
+              aenean cubilia quam nam auctor netus tempor metus luctus, dolor
+              sit tristique donec id dui proin leo quisque. vivamus enim mattis
+              aliquet libero eros massa in cubilia maecenas venenatis, ipsum
+              tempus ultricies class praesent suscipit porttitor magna libero,
+              quis erat accumsan in scelerisque tellus erat cras velit. class
+              leo vestibulum aenean ipsum libero pretium, ultricies ac habitasse
+              conubia maecenas
+            </p>
+          </div>
 
-    <div class="paragraph">
-      <div class="disc-label">I</div>
-      <p>
-        	Quis non sit dui duis class rutrum convallis augue urna ultrices, aenean cubilia quam nam auctor netus tempor metus luctus, dolor sit tristique donec id dui proin leo quisque. vivamus enim mattis aliquet libero eros massa in cubilia maecenas venenatis, ipsum tempus ultricies class praesent suscipit porttitor magna libero, quis erat accumsan in scelerisque tellus erat cras velit. class leo vestibulum aenean ipsum libero pretium, ultricies ac habitasse conubia maecenas 
-      </p>
-    </div>
+          <div class="paragraph">
+            <div class="disc-label">I</div>
+            <p>
+              Quis non sit dui duis class rutrum convallis augue urna ultrices,
+              aenean cubilia quam nam auctor netus tempor metus luctus, dolor
+              sit tristique donec id dui proin leo quisque. vivamus enim mattis
+              aliquet libero eros massa in cubilia maecenas venenatis, ipsum
+              tempus ultricies class praesent suscipit porttitor magna libero,
+              quis erat accumsan in scelerisque tellus erat cras velit. class
+              leo vestibulum aenean ipsum libero pretium, ultricies ac habitasse
+              conubia maecenas
+            </p>
+          </div>
 
-    <div class="paragraph">
-      <div class="disc-label">S</div>
-      <p>
-       	Quis non sit dui duis class rutrum convallis augue urna ultrices, aenean cubilia quam nam auctor netus tempor metus luctus, dolor sit tristique donec id dui proin leo quisque. vivamus enim mattis aliquet libero eros massa in cubilia maecenas venenatis, ipsum tempus ultricies class praesent suscipit porttitor magna libero, quis erat accumsan in scelerisque tellus erat cras velit. class leo vestibulum aenean ipsum libero pretium, ultricies ac habitasse conubia maecenas 
-      </p>
-    </div>
+          <div class="paragraph">
+            <div class="disc-label">S</div>
+            <p>
+              Quis non sit dui duis class rutrum convallis augue urna ultrices,
+              aenean cubilia quam nam auctor netus tempor metus luctus, dolor
+              sit tristique donec id dui proin leo quisque. vivamus enim mattis
+              aliquet libero eros massa in cubilia maecenas venenatis, ipsum
+              tempus ultricies class praesent suscipit porttitor magna libero,
+              quis erat accumsan in scelerisque tellus erat cras velit. class
+              leo vestibulum aenean ipsum libero pretium, ultricies ac habitasse
+              conubia maecenas
+            </p>
+          </div>
 
-    <div class="paragraph">
-      <div class="disc-label">C</div>
-      <p>
-       	Quis non sit dui duis class rutrum convallis augue urna ultrices, aenean cubilia quam nam auctor netus tempor metus luctus, dolor sit tristique donec id dui proin leo quisque. vivamus enim mattis aliquet libero eros massa in cubilia maecenas venenatis, ipsum tempus ultricies class praesent suscipit porttitor magna libero, quis erat accumsan in scelerisque tellus erat cras velit. class leo vestibulum aenean ipsum libero pretium, ultricies ac habitasse conubia maecenas 
-      </p>
-    </div>
-  </div>
+          <div class="paragraph">
+            <div class="disc-label">C</div>
+            <p>
+              Quis non sit dui duis class rutrum convallis augue urna ultrices,
+              aenean cubilia quam nam auctor netus tempor metus luctus, dolor
+              sit tristique donec id dui proin leo quisque. vivamus enim mattis
+              aliquet libero eros massa in cubilia maecenas venenatis, ipsum
+              tempus ultricies class praesent suscipit porttitor magna libero,
+              quis erat accumsan in scelerisque tellus erat cras velit. class
+              leo vestibulum aenean ipsum libero pretium, ultricies ac habitasse
+              conubia maecenas
+            </p>
+          </div>
+        </div>
       </div>
+      <Footer />
     </div>
-  )
+  );
 };
 
 export default Resultado;

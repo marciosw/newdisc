@@ -3,8 +3,8 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import Header from "./components/Header";
 import MainPage from "./components/MainPage";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
-
 
 function App() {
   return (
@@ -12,9 +12,7 @@ function App() {
       <div className="App">
         <Header />
         <MainPage />
-        <footer className="footer">
-          <div className="blackbox-logo">BLACKBOX</div>
-        </footer>
+        <Footer />
       </div>
     </Provider>
   );

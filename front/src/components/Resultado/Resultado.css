@@ -1,30 +1,31 @@
-.detalhes{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding:10px;
-    color:#fff
+.detalhes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: #fff;
 }
 
-.detalhes h2{
-    color: #fff;
+.detalhes h2 {
+  color: #fff;
 }
 
 .dadosUser {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding-top: 80px;
-    width: 100dvw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 80px;
+  width: 100dvw;
 }
 
-.usuario, .graphic {
-    min-width: 300px;
+.usuario,
+.graphic {
+  min-width: 300px;
 }
-.graphic img{
-    width: 300px;
+.graphic img {
+  width: 300px;
 }
 
 .table-container {
