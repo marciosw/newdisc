@@ -70,3 +70,11 @@ FIREBASE_PROJECT_ID=your_project_id
 Optionally FIREBASE_CREDENTIALS_JSON='{"type":"service_account",...}'
 
 /Users/marciomacedo/Downloads/google-cloud-sdk/bin/
+
+## Problemas
+
+Para confirmar os pacotes do firebase
+
+python3 -m pip show packaging
+python3 -m pip show google-cloud-firestore
+python3 -m pip show firebase-admin

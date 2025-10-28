@@ -34,7 +34,7 @@ class ResultadoEncaminhamento(BaseModel):
 router = APIRouter()
 
 
-async def salvar_teste_firestore(teste_comportamental: TesteComportamental):
+async def salvar_teste_firestore(teste_comportamental: TesteComportamental, resultado):
     try:
         db = get_firestore_client()
         collection_ref = db.collection("testes_comportamentais")
@@ -43,7 +43,9 @@ async def salvar_teste_firestore(teste_comportamental: TesteComportamental):
             "id": str(uid),
             "dados_respondente": teste_comportamental.dados_respondente,
             "codigo_campanha": teste_comportamental.codigo_campanha,
-            "ids_palavras": teste_comportamental.ids_palavras
+            "ids_palavras": teste_comportamental.ids_palavras,
+            "resultado": resultado["resultadoTesteVocacional"],
+            "data_teste": datetime.now()
         })
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error saving respondente to Firestore: {str(e)}")
@@ -207,9 +209,9 @@ async def salvar_teste_comportamental(
             dados_respondente=teste_comportamental.dados_respondente,
             codigo_campanha=teste_comportamental.codigo_campanha,
             ids_palavras=teste_comportamental.ids_palavras
-        )
-        await salvar_teste_firestore(teste_comportamental)
+        )        
         resultado = await obter_resultado_teste(retSalvar["dadosRespondente"]["id"])
+        await salvar_teste_firestore(teste_comportamental, resultado)
         return resultado
         
     except Exception as e:
