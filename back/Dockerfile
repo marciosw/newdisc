@@ -16,11 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
 
-# Option 1: Copy service account file to root (better structure)
-COPY app/service-account.json ./service-account.json
-
-# Option 2: Set environment variable for Application Default Credentials
-ENV GOOGLE_APPLICATION_CREDENTIALS=service-account.json
+# Note: Service account credentials should be provided via environment variables
+# in production. For local development, you can mount the file or use ADC.
 
 EXPOSE 8080
 

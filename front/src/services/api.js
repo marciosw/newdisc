@@ -41,3 +41,44 @@ export const fetchPersonalityWords = async () => {
     throw error;
   }
 };
+
+export const fetchRespondentData = async (uid) => {
+  try {
+    console.log(`Fetching respondent data for UID: ${uid}`);
+    console.log(`API_BASE_URL: ${API_BASE_URL}`);
+    
+    // Try direct request first, then fallback to proxy if CORS fails
+    let response;
+    try {
+      response = await fetch(`${API_BASE_URL}/BuscarRespondente/${uid}`, {
+        method: 'GET',
+        headers: {
+          'X-API-Key': API_KEY,
+          'Accept': 'application/json',
+        },
+      });
+    } catch (corsError) {
+      console.log('CORS error, trying with proxy...', corsError);
+      // Fallback to CORS proxy
+      const proxyUrl = 'https://api.allorigins.win/raw?url=';
+      const targetUrl = encodeURIComponent(`${API_BASE_URL}/BuscarRespondente/${uid}`);
+      response = await fetch(`${proxyUrl}${targetUrl}`, {
+        method: 'GET',
+        headers: {
+          'X-API-Key': API_KEY,
+          'Accept': 'application/json',
+        },
+      });
+    }
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching respondent data:', error);
+    throw error;
+  }
+};
