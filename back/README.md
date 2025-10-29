@@ -49,7 +49,6 @@ gcloud run deploy newdiscapi \
   --region southamerica-east1 \
   --platform managed \
   --allow-unauthenticated \
-  --set-env-vars API_KEY=your_api_key,ALLOWED_ORIGINS=https://example.com \
   --set-env-vars FIREBASE_PROJECT_ID=ouzaz-ac5bd
 ```
 

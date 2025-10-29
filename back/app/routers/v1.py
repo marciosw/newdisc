@@ -162,8 +162,8 @@ async def buscar_respondente(id_externo: str):
         raise HTTPException(status_code=500, detail=f"Error reading from Firestore: {str(e)}")
 
 #Buscar respondente por id
-@router.get("/BuscarRespondente/{id}")
-async def buscar_respondente(id: str):
+@router.get("/BuscarRespondenteById/{id}")
+async def buscar_respondente_by_id(id: str):
     """
     Buscar respondente por id
     """

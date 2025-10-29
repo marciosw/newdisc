@@ -17,33 +17,41 @@ def initialize_firebase_if_needed() -> firebase_admin.App:
         _app = firebase_admin.get_app()
         return _app
 
-    # Initialize Firebase with credentials from settings
-    cred = None
-    
-    # Try to use credentials from settings (environment variables)
-    if settings.firebase_credentials_json:
-        print("Using inline JSON credentials")
-        # Use inline JSON credentials
-        cred = credentials.Certificate(settings.firebase_credentials_json)
-    elif settings.firebase_credentials_path:
-        print(f"Using file path credentials: {settings.firebase_credentials_path}")
-        # Use file path credentials
-        cred = credentials.Certificate(settings.firebase_credentials_path)
-    else:
-        print("Using Application Default Credentials (ADC)")
-        print("WARNING: This may cause permission issues if ADC doesn't have proper Firestore access")
-        # Fall back to Application Default Credentials (ADC)
-        # This works in production environments like Google Cloud Run
-        cred = credentials.ApplicationDefault()
+    try:
+        # Initialize Firebase with credentials from settings
+        cred = None
+        
+        # Try to use credentials from settings (environment variables)
+        if settings.firebase_credentials_json:
+            print("Using inline JSON credentials")
+            # Use inline JSON credentials
+            cred = credentials.Certificate(settings.firebase_credentials_json)
+        elif settings.firebase_credentials_path:
+            print(f"Using file path credentials: {settings.firebase_credentials_path}")
+            # Use file path credentials
+            cred = credentials.Certificate(settings.firebase_credentials_path)
+        else:
+            print("Using Application Default Credentials (ADC)")
+            print("WARNING: This may cause permission issues if ADC doesn't have proper Firestore access")
+            # Fall back to Application Default Credentials (ADC)
+            # This works in production environments like Google Cloud Run
+            cred = credentials.ApplicationDefault()
 
-    _app = firebase_admin.initialize_app(cred, {
-        "projectId": settings.firebase_project_id,
-    })
-    return _app
+        _app = firebase_admin.initialize_app(cred, {
+            "projectId": settings.firebase_project_id,
+        })
+        return _app
+    except Exception as e:
+        print(f"Firebase initialization failed: {e}")
+        print("Continuing without Firebase - some endpoints may not work")
+        # Return a dummy app to prevent crashes
+        return None
 
 
 def get_firestore_client() -> firestore.Client:
-    initialize_firebase_if_needed()
+    app = initialize_firebase_if_needed()
+    if app is None:
+        raise Exception("Firebase not initialized - check credentials and project ID")
     return firestore.client()
 
 
@@ -54,6 +62,8 @@ def get_firebase_auth_info() -> dict:
     """
     try:
         app = initialize_firebase_if_needed()
+        if app is None:
+            return {"error": "Firebase not initialized - check credentials and project ID"}
         db = firestore.client()
         settings = get_settings()
         

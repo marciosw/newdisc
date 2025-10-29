@@ -16,10 +16,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
 
-# Note: Service account credentials should be provided via environment variables
-# in production. For local development, you can mount the file or use ADC.
-
 EXPOSE 8080
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
-
+# Respect Cloud Run provided PORT (default to 8080 when not set)
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080}
